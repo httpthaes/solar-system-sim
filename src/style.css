@@ -31,7 +31,7 @@ img {
     height: 10em;
     border-radius: 50%;
     box-shadow: 0 0 3em rgb(255, 128, 0);
-    animation: orbit 50s linear infinite;
+    animation: rotate 50s linear infinite;
 }
 
 .planet, #moon {
@@ -47,7 +47,7 @@ img {
     left: 12.5em;
     width: 15em;
     height: 15em;
-    animation: orbit 5s linear infinite;
+    animation: rotate 5s linear infinite; /*órbita ao redor do sol*/
 }
 
 #venus {
@@ -55,7 +55,7 @@ img {
     left: 10em;
     width: 20em;
     height: 20em;
-    animation: orbit 8s linear infinite;
+    animation: rotate 8s linear infinite;
 }
 
 #earth {
@@ -63,7 +63,7 @@ img {
     left: 6em;
     width: 28em;
     height: 28em; 
-    animation: orbit 10s linear infinite;   
+    animation: rotate 10s linear infinite;
 }
 
 #moon {
@@ -71,7 +71,7 @@ img {
     right: 0.6em;
     width: 5em;
     height: 5em; 
-    animation: orbit 10s linear infinite;
+    animation: rotate 10s linear infinite;
 }
 
 #mars {
@@ -79,7 +79,7 @@ img {
     left: 2.5em;
     width: 36em;
     height: 36em; 
-    animation: orbit 15s linear infinite;
+    animation: rotate 15s linear infinite;
 }
 
 #jupiter {
@@ -87,7 +87,7 @@ img {
     left: -2em;
     width: 45em;
     height: 45em; 
-    animation: orbit  25s linear infinite;
+    animation: rotate  25s linear infinite;
 }
 
 #saturn {
@@ -95,7 +95,7 @@ img {
     left: -7em;
     width: 55em;
     height: 55em; 
-    animation: orbit 35s linear infinite;
+    animation: rotate 35s linear infinite;
 }
 
 #uranus {
@@ -103,7 +103,7 @@ img {
     left: -12em;
     width: 65em;
     height: 65em; 
-    animation: orbit 45s linear infinite;
+    animation: rotate 45s linear infinite;
 }
 
 #neptune {
@@ -111,7 +111,7 @@ img {
     left: -17em;
     width: 75em;
     height: 75em; 
-    animation: orbit 60s linear infinite;
+    animation: rotate 60s linear infinite;
 }
 
 #pluto {
@@ -119,7 +119,7 @@ img {
     left: -22em;
     width: 85em;
     height: 85em; 
-    animation: orbit 65s linear infinite;
+    animation: rotate 65s linear infinite;
 }
 
 .planet::before,
@@ -128,7 +128,6 @@ img {
     content: '';
     position: absolute;
     border-radius: 50%;
-    animation: orbit 30s linear infinite;
     pointer-events: auto;
     transition: transform 0.3s ease;
 }
@@ -140,6 +139,7 @@ img {
     height: 1.8em;
     background-image: url('../images/mercury.png');
     background-size: cover;
+    animation: rotate 30s linear infinite; /*rotação em torno do próprio eixo*/
 }
 
 #venus::before {
@@ -149,6 +149,7 @@ img {
     height: 2.8em;
     background-image: url('../images/venus.png');
     background-size: cover;
+    animation: rotate-reverse 30s linear infinite;
 }
 
 #earth::before {
@@ -158,6 +159,7 @@ img {
     height: 3.5em;
     background-image: url('../images/earth.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 #moon::before {
@@ -167,6 +169,7 @@ img {
     height: 0.8em;
     background-image: url('../images/moon.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 #mars::before {
@@ -176,6 +179,7 @@ img {
     height: 2em;
     background-image: url('../images/mars.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 #jupiter::before {
@@ -185,6 +189,7 @@ img {
     height: 5em;
     background-image: url('../images/jupiter.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 #saturn::before {
@@ -194,6 +199,7 @@ img {
     height: 4.8em;
     background-image: url('../images/saturn.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 #uranus::before {
@@ -203,6 +209,7 @@ img {
     height: 4em;
     background-image: url('../images/uranus.png');
     background-size: cover;
+    animation: rotate-reverse 30s linear infinite;
 }
 
 #neptune::before {
@@ -212,6 +219,7 @@ img {
     height: 4em;
     background-image: url('../images/neptune.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 #pluto::before {
@@ -221,6 +229,7 @@ img {
     height: 0.6em;
     background-image: url('../images/pluto.png');
     background-size: cover;
+    animation: rotate 30s linear infinite;
 }
 
 .star {
@@ -252,9 +261,17 @@ img {
     cursor: pointer;
 }
 
-@keyframes orbit {
+@keyframes rotate {
     to {
-        transform: rotate(360deg); 
+        transform: rotate(360deg);
+    }
+}
+
+/*rotação retrógrada*/
+
+@keyframes rotate-reverse {
+    to {
+        transform: rotate(-360deg);
     }
 }
 
