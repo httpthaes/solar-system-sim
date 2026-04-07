@@ -20,7 +20,7 @@ img {
     width: 130%;
 }
 
-.sun {
+#sun {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,16 +34,7 @@ img {
     animation: orbit 50s linear infinite;
 }
 
-.mercury,
-.venus,
-.earth,
-.moon,
-.mars,
-.jupiter,
-.saturn,
-.uranus,
-.neptune,
-.pluto {
+.planet, #moon {
     position: absolute;
     border-style: solid;
     border-color: white transparent transparent transparent;
@@ -51,7 +42,7 @@ img {
     border-radius: 50%;
 }
 
-.mercury {
+#mercury {
     top: 12.5em;
     left: 12.5em;
     width: 15em;
@@ -59,7 +50,7 @@ img {
     animation: orbit 5s linear infinite;
 }
 
-.venus {
+#venus {
     top: 10em;
     left: 10em;
     width: 20em;
@@ -67,56 +58,63 @@ img {
     animation: orbit 8s linear infinite;
 }
 
-.earth {
+#earth {
     top: 6em;
     left: 6em;
     width: 28em;
     height: 28em; 
     animation: orbit 10s linear infinite;   
 }
-.moon {
+
+#moon {
     top: 2.4em;
     right: 0.6em;
     width: 5em;
     height: 5em; 
     animation: orbit 10s linear infinite;
 }
-.mars {
+
+#mars {
     top: 2em;
     left: 2.5em;
     width: 36em;
     height: 36em; 
     animation: orbit 15s linear infinite;
 }
-.jupiter {
+
+#jupiter {
     top: -2em;
     left: -2em;
     width: 45em;
     height: 45em; 
     animation: orbit  25s linear infinite;
 }
-.saturn {
+
+#saturn {
     top: -7em;
     left: -7em;
     width: 55em;
     height: 55em; 
     animation: orbit 35s linear infinite;
 }
-.uranus {
+
+#uranus {
     top: -12em;
     left: -12em;
     width: 65em;
     height: 65em; 
     animation: orbit 45s linear infinite;
 }
-.neptune {
+
+#neptune {
     top: -17em;
     left: -17em;
     width: 75em;
     height: 75em; 
     animation: orbit 60s linear infinite;
 }
-.pluto {
+
+#pluto {
     top: -22em;
     left: -22em;
     width: 85em;
@@ -124,23 +122,18 @@ img {
     animation: orbit 65s linear infinite;
 }
 
-.mercury::before,
-.venus::before,
-.earth::before,
-.moon::before,
-.mars::before,
-.jupiter::before,
-.saturn::before,
-.uranus::before,
-.neptune::before,
-.pluto::before{
+.planet::before,
+#moon::before,
+#sun::before {
     content: '';
     position: absolute;
     border-radius: 50%;
     animation: orbit 30s linear infinite;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
 }
 
-.mercury::before {
+#mercury::before {
     top: 1.5em;
     right: 1em;
     width: 1.8em;
@@ -149,7 +142,7 @@ img {
     background-size: cover;
 }
 
-.venus::before {
+#venus::before {
     top: 0.9em;
     right: 2em;
     width: 2.8em;
@@ -158,7 +151,7 @@ img {
     background-size: cover;
 }
 
-.earth::before {
+#earth::before {
     top: 3em;
     right: 1.5em;
     width: 3.5em;
@@ -167,7 +160,7 @@ img {
     background-size: cover;
 }
 
-.moon::before {
+#moon::before {
     top: 0.3em;
     right: 0.2em;
     width: 0.8em;
@@ -176,7 +169,7 @@ img {
     background-size: cover;
 }
 
-.mars::before {
+#mars::before {
     top: 4.6em;
     right: 4em;
     width: 2em;
@@ -185,7 +178,7 @@ img {
     background-size: cover;
 }
 
-.jupiter::before {
+#jupiter::before {
     top: 6em;
     right: 3em;
     width: 5em;
@@ -194,7 +187,7 @@ img {
     background-size: cover;
 }
 
-.saturn::before {
+#saturn::before {
     top: 7em;
     right: 5em;
     width: 4.8em;
@@ -203,7 +196,7 @@ img {
     background-size: cover;
 }
 
-.uranus::before {
+#uranus::before {
     top: 9em;
     right: 6.5em;
     width: 4em;
@@ -212,7 +205,7 @@ img {
     background-size: cover;
 }
 
-.neptune::before {
+#neptune::before {
     top: 10em;
     right: 8em;
     width: 4em;
@@ -221,7 +214,7 @@ img {
     background-size: cover;
 }
 
-.pluto::before {
+#pluto::before {
     top: 12em;
     right: 12.3em;
     width: 0.6em;
@@ -240,9 +233,28 @@ img {
     box-shadow: 0 0 6px white;
 }
 
+.planet, #moon, #sun {
+    pointer-events: none;
+}
+
+#mercury:hover::before,
+#venus:hover::before,
+#earth:hover::before,
+#mars:hover::before,
+#jupiter:hover::before,
+#saturn:hover::before,
+#uranus:hover::before,
+#neptune:hover::before,
+#pluto:hover::before,
+#sun:hover::before,
+#moon:hover::before {
+    filter: brightness(1.3);
+    cursor: pointer;
+}
+
 @keyframes orbit {
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); 
     }
 }
 
