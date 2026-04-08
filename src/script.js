@@ -3,10 +3,12 @@ const sidebar = document.getElementById('sidebar');
 const sidebarContent = document.getElementById('sidebarContent');
 const closeSidebar = document.getElementById('closeSidebar');
 
+//Dados sistema solar
 const astros = [
     {
         id: "sun",
         displayName: "Sol",
+        image: "astro01.jpeg",
         type: "star",
         diameter: 1392000,
         distanceSun: 0,
@@ -17,6 +19,7 @@ const astros = [
     {
         id: "mercury",
         displayName: "Mercúrio",
+        image: "astro02.jpeg",
         type: "rocky",
         diameter: 4879,
         distanceSun: 0.39,
@@ -27,6 +30,7 @@ const astros = [
     {
         id: "venus",
         displayName: "Vênus",
+        image: "astro03.jpg",
         type: "rocky",
         diameter: 12104,
         distanceSun: 0.72,
@@ -37,6 +41,7 @@ const astros = [
     {
         id: "earth",
         displayName: "Terra",
+        image: "astro04.jpeg",
         type: "rocky",
         diameter: 12742,
         distanceSun: 1.00,
@@ -47,6 +52,7 @@ const astros = [
     {
         id: "moon",
         displayName: "Lua",
+        image: "astro05.jpg",
         type: "moon",
         diameter: 3474,
         distanceSun: 1.00,
@@ -57,6 +63,7 @@ const astros = [
     {
         id: "mars",
         displayName: "Marte",
+        image: "astro06.jpg",
         type: "rocky",
         diameter: 6779,
         distanceSun: 1.52,
@@ -67,6 +74,7 @@ const astros = [
     {
         id: "jupiter",
         displayName: "Júpiter",
+        image: "astro07.png",
         type: "gaseous",
         diameter: 139822,
         distanceSun: 5.20,
@@ -77,6 +85,7 @@ const astros = [
     {
         id: "saturn",
         displayName: "Saturno",
+        image: "astro08.jpg",
         type: "gaseous",
         diameter: 116464,
         distanceSun: 9.54,
@@ -87,6 +96,7 @@ const astros = [
     {
         id: "uranus",
         displayName: "Urano",
+        image: "astro09.png",
         type: "icy",
         diameter: 50724,
         distanceSun: 19.22,
@@ -97,6 +107,7 @@ const astros = [
     {
         id: "neptune",
         displayName: "Netuno",
+        image: "astro10.png",
         type: "icy",
         diameter: 49244,
         distanceSun: 30.06,
@@ -106,6 +117,7 @@ const astros = [
     }
 ]
 
+//eventos
 closeSidebar.addEventListener('click', () => {
     sidebar.classList.remove('active')
 })
@@ -115,9 +127,8 @@ astrosDivs.forEach(astro => {
 
         const astroInfo = astros.find(a => a.id === astro.id)
 
-        if (!astroInfo) return
-
         sidebarContent.innerHTML = `
+            <img src="./images/${astroInfo.image}">
             <h1>${astroInfo.displayName}</h1>
             <p>Tipo: ${astroInfo.type}</p>
             <p>Diâmetro: ${astroInfo.diameter} km</p>
