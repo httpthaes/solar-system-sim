@@ -261,3 +261,26 @@ img {
     50%  { opacity: 1; }
     100% { opacity: 0.2; }
 }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    transition: right 0.4s ease;
+    z-index: 10;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+#sidebarContent {
+    color: white;
+    font-size: large;
+}
