@@ -280,6 +280,10 @@ img {
     right: 0;
 }
 
+.sidebar img {
+    width: 250px;
+}
+
 #sidebarContent {
     color: white;
     font-size: large;
