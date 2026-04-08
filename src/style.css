@@ -114,14 +114,6 @@ img {
     animation: rotate 60s linear infinite;
 }
 
-#pluto {
-    top: -22em;
-    left: -22em;
-    width: 85em;
-    height: 85em; 
-    animation: rotate 65s linear infinite;
-}
-
 .planet::before,
 #moon::before,
 #sun::before {
@@ -222,16 +214,6 @@ img {
     animation: rotate 30s linear infinite;
 }
 
-#pluto::before {
-    top: 12em;
-    right: 12.3em;
-    width: 0.6em;
-    height: 0.6em;
-    background-image: url('../images/pluto.png');
-    background-size: cover;
-    animation: rotate 30s linear infinite;
-}
-
 .star {
     position: absolute;
     background-color: white;
@@ -254,7 +236,6 @@ img {
 #saturn:hover::before,
 #uranus:hover::before,
 #neptune:hover::before,
-#pluto:hover::before,
 #sun:hover::before,
 #moon:hover::before {
     filter: brightness(1.3);
