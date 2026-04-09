@@ -24,6 +24,10 @@ const astros = [
         diameter: 4879,
         distanceSun: 0.39,
         gravity: 3.7,
+        rotationPeriod: 58,
+        rotationUnit: "dias terrestres",
+        orbitalPeriod: 88,
+        orbitalUnit: "dias terrestres",
         temperature: 167,
         moons: 0,
     },
@@ -35,6 +39,10 @@ const astros = [
         diameter: 12104,
         distanceSun: 0.72,
         gravity: 8.87,
+        rotationPeriod: 243,
+        rotationUnit: "dias terrestres (rotação retrógrada)",
+        orbitalPeriod: 225,
+        orbitalUnit: "dias terrestres",
         temperature: 464,
         moons: 0,
     },
@@ -46,6 +54,10 @@ const astros = [
         diameter: 12742,
         distanceSun: 1.00,
         gravity: 9.81,
+        rotationPeriod: 24,
+        rotationUnit: "horas",
+        orbitalPeriod: 365,
+        orbitalUnit: "dias",
         temperature: 15,
         moons: 1,
     },
@@ -68,6 +80,10 @@ const astros = [
         diameter: 6779,
         distanceSun: 1.52,
         gravity: 3.72,
+        rotationPeriod: 24.6,
+        rotationUnit: "horas",
+        orbitalPeriod: 687,
+        orbitalUnit: "dias terrestres",
         temperature: -60,
         moons: 2,
     },
@@ -79,6 +95,10 @@ const astros = [
         diameter: 139822,
         distanceSun: 5.20,
         gravity: 24.79,
+        rotationPeriod: 10,
+        rotationUnit: "horas",
+        orbitalPeriod: 12,
+        orbitalUnit: "anos terrestres",
         temperature: -108,
         moons: 95,
     },
@@ -90,6 +110,10 @@ const astros = [
         diameter: 116464,
         distanceSun: 9.54,
         gravity: 10.44,
+        rotationPeriod: 10.7,
+        rotationUnit: "horas",
+        orbitalPeriod: 29,
+        orbitalUnit: "anos terrestres",
         temperature: -138,
         moons: 146,
     },
@@ -101,6 +125,10 @@ const astros = [
         diameter: 50724,
         distanceSun: 19.22,
         gravity: 8.87,
+        rotationPeriod: 17.2,
+        rotationUnit: "horas (gira de lado)",
+        orbitalPeriod: 84,
+        orbitalUnit: "anos terrestres",
         temperature: -195,
         moons: 28,
     },
@@ -112,6 +140,10 @@ const astros = [
         diameter: 49244,
         distanceSun: 30.06,
         gravity: 11.15,
+        rotationPeriod: 16,
+        rotationUnit: "horas",
+        orbitalPeriod: 165,
+        orbitalUnit: "anos terrestres",
         temperature: -200,
         moons: 16,
     }
@@ -154,12 +186,16 @@ astrosDivs.forEach(astro => {
                  astroInfo.type === "gaseous" || 
                  astroInfo.type === "icy"
 
+        const isSun = astroInfo.distanceSun === 0
+
         sidebarContent.innerHTML = `
             <img src="./images/${astroInfo.image}">
             <h1>${astroInfo.displayName}</h1>
             <p>Tipo: ${translateType(astroInfo.type)}</p>
+            ${isPlanet ? `<p>Duração do dia: ${astroInfo.rotationPeriod} ${astroInfo.rotationUnit}</p>` : ""}
+            ${isPlanet ? `<p>Duração do ano: ${astroInfo.orbitalPeriod} ${astroInfo.orbitalUnit}</p>` : ""}
             <p>Diâmetro: ${astroInfo.diameter} km</p>
-            <p>Distância do sol: ${astroInfo.distanceSun} UA</p>
+            ${!isSun ? `<p>Distância do sol: ${astroInfo.distanceSun} UA</p>` : ""}
             <p>Gravidade: ${astroInfo.gravity} m/s²</p>
             <p>Temperatura: ${astroInfo.temperature}°C</p>
             ${isPlanet ? `<p>Luas: ${astroInfo.moons}</p>` : ""}
