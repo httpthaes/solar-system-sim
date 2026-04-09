@@ -15,9 +15,14 @@ body {
     position: relative;
 }
 
-img {
-    height:130%;
+#sun {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#sun img {
     width: 130%;
+    height: 130%;
 }
 
 #sun {
@@ -224,7 +229,7 @@ img {
     box-shadow: 0 0 6px white;
 }
 
-.planet, #moon, #sun {
+.planet, #moon{
     pointer-events: none;
 }
 
