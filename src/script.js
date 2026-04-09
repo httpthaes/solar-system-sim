@@ -150,7 +150,9 @@ astrosDivs.forEach(astro => {
 
         const astroInfo = astros.find(a => a.id === astro.id)
 
-        const luasLinha = astroInfo.moons >= 0 ? `<p>Luas: ${astroInfo.moons}</p>` : "";
+        const isPlanet = astroInfo.type === "rocky" || 
+                 astroInfo.type === "gaseous" || 
+                 astroInfo.type === "icy"
 
         sidebarContent.innerHTML = `
             <img src="./images/${astroInfo.image}">
@@ -160,7 +162,7 @@ astrosDivs.forEach(astro => {
             <p>Distância do sol: ${astroInfo.distanceSun} UA</p>
             <p>Gravidade: ${astroInfo.gravity} m/s²</p>
             <p>Temperatura: ${astroInfo.temperature}°C</p>
-            ${luasLinha}
+            ${isPlanet ? `<p>Luas: ${astroInfo.moons}</p>` : ""}
         `
 
         sidebar.classList.add('active')
