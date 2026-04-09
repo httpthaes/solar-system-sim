@@ -180,25 +180,29 @@ astrosDivs.forEach(astro => {
     astro.addEventListener('click', async () => {
         event.stopPropagation()
 
-        const astroInfo = astros.find(a => a.id === astro.id)
+        const {
+            image, displayName, type, 
+            rotationPeriod, rotationUnit, 
+            orbitalPeriod, orbitalUnit, 
+            diameter, distanceSun, 
+            gravity, temperature, moons
+        } = astros.find(a => a.id === astro.id)
 
-        const isPlanet = astroInfo.type === "rocky" || 
-                 astroInfo.type === "gaseous" || 
-                 astroInfo.type === "icy"
+        const isPlanet = type === "rocky" || type === "gaseous" || type === "icy"
 
-        const isSun = astroInfo.distanceSun === 0
+        const isSun = distanceSun === 0
 
         sidebarContent.innerHTML = `
-            <img src="./images/${astroInfo.image}">
-            <h1>${astroInfo.displayName}</h1>
-            <p>Tipo: ${translateType(astroInfo.type)}</p>
-            ${isPlanet ? `<p>Duração do dia: ${astroInfo.rotationPeriod} ${astroInfo.rotationUnit}</p>` : ""}
-            ${isPlanet ? `<p>Duração do ano: ${astroInfo.orbitalPeriod} ${astroInfo.orbitalUnit}</p>` : ""}
-            <p>Diâmetro: ${astroInfo.diameter} km</p>
-            ${!isSun ? `<p>Distância do sol: ${astroInfo.distanceSun} UA</p>` : ""}
-            <p>Gravidade: ${astroInfo.gravity} m/s²</p>
-            <p>Temperatura: ${astroInfo.temperature}°C</p>
-            ${isPlanet ? `<p>Luas: ${astroInfo.moons}</p>` : ""}
+            <img src="./images/${image}">
+            <h1>${displayName}</h1>
+            <p>Tipo: ${translateType(type)}</p>
+            ${isPlanet ? `<p>Duração do dia: ${rotationPeriod} ${rotationUnit}</p>` : ""}
+            ${isPlanet ? `<p>Duração do ano: ${orbitalPeriod} ${orbitalUnit}</p>` : ""}
+            <p>Diâmetro: ${diameter} km</p>
+            ${!isSun ? `<p>Distância do sol: ${distanceSun} UA</p>` : ""}
+            <p>Gravidade: ${gravity} m/s²</p>
+            <p>Temperatura: ${temperature}°C</p>
+            ${isPlanet ? `<p>Luas: ${moons}</p>` : ""}
         `
 
         sidebar.classList.add('active')
