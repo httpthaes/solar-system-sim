@@ -1,4 +1,4 @@
-const astrosDivs = document.querySelectorAll('.planet, #sun, #moon');
+const astrosDivs = document.querySelectorAll('#sun, #moon, .planet');
 const sidebar = document.getElementById('sidebar');
 const sidebarContent = document.getElementById('sidebarContent');
 const closeSidebar = document.getElementById('closeSidebar');
@@ -117,25 +117,50 @@ const astros = [
     }
 ]
 
+function translateType(type) {
+    switch(type) {
+        case "rocky":   return "Rochoso"
+        case "gaseous": return "Gigante gasoso"
+        case "icy":     return "Gigante gelado"
+        case "star":    return "Estrela"
+        case "moon":    return "Satélite natural"
+        default:        return type
+    }
+}
+
 //eventos
 closeSidebar.addEventListener('click', () => {
     sidebar.classList.remove('active')
 })
 
 astrosDivs.forEach(astro => {
+
+    astro.addEventListener('mouseover', () => {
+        astro.style.animationPlayState = 'paused'
+        astro.style.setProperty('--play-state', 'paused')
+    })
+
+    astro.addEventListener('mouseleave', () => {
+        astro.style.animationPlayState = 'running'
+        astro.style.setProperty('--play-state', 'running')
+    })
+
     astro.addEventListener('click', async () => {
+        event.stopPropagation()
 
         const astroInfo = astros.find(a => a.id === astro.id)
+
+        const luasLinha = astroInfo.moons >= 0 ? `<p>Luas: ${astroInfo.moons}</p>` : "";
 
         sidebarContent.innerHTML = `
             <img src="./images/${astroInfo.image}">
             <h1>${astroInfo.displayName}</h1>
-            <p>Tipo: ${astroInfo.type}</p>
+            <p>Tipo: ${translateType(astroInfo.type)}</p>
             <p>Diâmetro: ${astroInfo.diameter} km</p>
             <p>Distância do sol: ${astroInfo.distanceSun} UA</p>
             <p>Gravidade: ${astroInfo.gravity} m/s²</p>
             <p>Temperatura: ${astroInfo.temperature}°C</p>
-            <p>Luas: ${astroInfo.moons}</p>
+            ${luasLinha}
         `
 
         sidebar.classList.add('active')
