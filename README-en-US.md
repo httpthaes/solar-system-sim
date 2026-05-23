@@ -14,7 +14,7 @@ Beyond the technical side, I also conducted research to represent celestial bodi
 
 ---
 
-## 🚀 Implemented Features
+## 🚀 Features
 
 - Interactive sidebar with information about celestial bodies
 - Click events on the Sun, Moon, and planets
@@ -25,8 +25,6 @@ Beyond the technical side, I also conducted research to represent celestial bodi
 - Use of destructuring to improve code readability
 - Structuring of celestial body data into arrays of objects
 - Bug fixes for interactions and events
-
-> The entire process was documented in the project's commits.
 
 ---
 
@@ -42,24 +40,8 @@ Beyond the technical side, I also conducted research to represent celestial bodi
 
 ---
 
-## 💻 Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-
----
-
 ## 🌠 Credits
 
 This project was developed based on [SolarView](https://github.com/CogniSolver/solar-system), created by **Bijay Pandey**.
 
 The original project served as the initial structure for the solar system. From that foundation, I developed new features, interactions, and improvements.
-
----
-
-## 📚 Project Goal
-
-This is a study project developed for educational purposes.
-
-The idea was to use a topic I'm deeply interested in to make learning programming both creative and motivating.
