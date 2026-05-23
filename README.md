@@ -14,7 +14,7 @@ Além da parte técnica, também realizei pesquisas para representar os astros u
 
 ---
 
-## 🚀 Funcionalidades Implementadas
+## 🚀 Funcionalidades
 
 - Sidebar interativa com informações sobre os astros
 - Eventos de clique no Sol, Lua e planetas
@@ -25,8 +25,6 @@ Além da parte técnica, também realizei pesquisas para representar os astros u
 - Uso de destructuring para melhorar legibilidade do código
 - Estruturação dos dados dos astros em arrays de objetos
 - Correção de bugs de interação e eventos
-
-> Todo o processo foi documentado nos commits do projeto.
 
 ---
 
@@ -42,24 +40,8 @@ Além da parte técnica, também realizei pesquisas para representar os astros u
 
 ---
 
-## 💻 Tecnologias Utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-
----
-
 ## 🌠 Créditos
 
 Este projeto foi desenvolvido a partir do [SolarView](https://github.com/CogniSolver/solar-system), criado por **Bijay Pandey**.
 
 O projeto original serviu como estrutura inicial para o sistema solar. A partir dessa base, desenvolvi novas funcionalidades, interações e melhorias.
-
----
-
-## 📚 Objetivo do Projeto
-
-Este é um projeto de estudo desenvolvido com fins educacionais.
-
-A ideia foi utilizar um tema pelo qual tenho grande interesse para tornar o aprendizado de programação criativo e motivador.
